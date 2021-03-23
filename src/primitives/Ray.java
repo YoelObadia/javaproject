@@ -3,26 +3,13 @@ package primitives;
 import java.util.Objects;
 
 public class Ray {
-    Point3D _p0;
-    Vector _dir;
+    final Point3D _p0;
+    final Vector _dir;
 
-    /**
-     * constructor that receives a point and a vector
-     * (a vector received by a constructor does not have to be normalized, but a vector stored in the beam must be normalized)
-     * @param p point
-     * @param d vector
-     */
-
-    public Ray(Point3D p, Vector d) {
-        this._dir = d;
-
-        if(this._dir.normalize() == this._dir)
-            this._p0 = p;
-
-        else
-            this._dir.normalize();
-            this._p0 = p;
-            this._dir = d;
+    public Ray(Point3D p0, Vector dir) {
+        dir.normalize();
+        _p0 = p0;
+        _dir = dir;
     }
 
     /**

@@ -5,6 +5,8 @@ import java.util.Objects;
 /**
  * basic Point for RayTracing project
  * @author Dan
+ * @author jerry halfon halfoncj1@gmail.com 1325129
+ * @author yoel obadia yoel.obadia.yo@gmail.com 1413422
  */
 
 public class Point3D {
@@ -12,7 +14,7 @@ public class Point3D {
     final Coordinate _y;
     final Coordinate _z;
 
-    final static Point3D ZERO = new Point3D(0.0d, 0.0d, 0.0d);
+    final public static Point3D ZERO = new Point3D(0.0d, 0.0d, 0.0d);
 
     /**
      * constructor for Point3D
@@ -124,8 +126,10 @@ public class Point3D {
 
     public Point3D add(Vector vector){
         return new Point3D(_x.coord + vector._head._x.coord,
-                           _y.coord + vector._head._y.coord,
-                           _z.coord + vector._head._z.coord
+                _y.coord + vector._head._y.coord,
+                _z.coord + vector._head._z.coord
         );
     }
+
+
 }

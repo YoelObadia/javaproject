@@ -1,14 +1,11 @@
 package geometries;
 
-import primitives.Point3D;
-import primitives.Vector;
+import primitives.*;
 
-import java.util.Objects;
+public class Sphere implements Geometry{
 
-public abstract class Sphere implements Geometry{
-
-    Point3D _center;
-    double _radius;
+    final Point3D _center;
+    final double _radius;
 
     public Sphere(Point3D a, double r){
         this._center = a;
@@ -28,10 +25,21 @@ public abstract class Sphere implements Geometry{
         return _radius;
     }
 
+    /**
+     * normalization between the points p and o (who is the center of the sphere)
+     * @param p point in the sphere
+     * @return a vector as result of the operation
+     */
+
+    @Override
     public Vector getNormal(Point3D p)
     {
-        return p.subtract(_center).normalized();
+        Vector p_o = p.subtract(_center);
+        Vector v = p_o.normalize();
+        return v;
     }
+
+
 
     @Override
     public String toString() {

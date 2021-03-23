@@ -1,12 +1,10 @@
 package geometries;
 
-import primitives.Point3D;
-import primitives.Ray;
-import primitives.Vector;
+import primitives.*;
 
 import java.util.Objects;
 
-public abstract class Tube implements Geometry{
+public class Tube implements Geometry{
     Ray _axisRay;
     double _radius;
 
@@ -26,10 +24,14 @@ public abstract class Tube implements Geometry{
     @Override
     public Vector getNormal(Point3D p)
     {
-        double t = _axisRay.getVec().dotProduct(p.subtract(_axisRay.getPoint()));
-        Point3D o = _axisRay.getPoint().add(_axisRay.getVec().scalar(t));
+        Point3D pO = _axisRay.getPoint();
+        Vector pO_p = p.subtract(pO);
+        Vector v =  _axisRay.getVec();
+        double t = v.dotProduct(pO_p);
 
-        return p.subtract(o).normalized();
+        Point3D O = pO.add(v.scalar(t));
+
+        return p.subtract(O).normalize();
     }
 
     @Override
@@ -37,7 +39,12 @@ public abstract class Tube implements Geometry{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tube tube = (Tube) o;
-        return Double.compare(tube._radius, _radius) == 0 && _axisRay.equals(tube._axisRay);
+        return Double.compare(tube._radius, _radius) == 0 && Objects.equals(_axisRay, tube._axisRay);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(_axisRay, _radius);
     }
 
     @Override

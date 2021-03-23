@@ -13,19 +13,16 @@ public class Plane implements Geometry{
     }
 
     public Plane(Point3D q1, Point3D q2, Point3D q3){
-         this._normal = null;
-         this._q0 = q1;
+        this._normal = null;
+        this._q0 = q1;
     }
-
-    /**
-     * To change later
-     * @return
-     */
 
     public Vector getNormal() {
         return _normal;
     }
 
+
+    @Override
     public Vector getNormal(Point3D p) {
         return _normal;
     }

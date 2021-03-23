@@ -95,19 +95,19 @@ public class Vector {
      */
 
     public Vector add(Vector v) {
-                double u1 = _head._x.coord;
-                double u2 = _head._y.coord;
-                double u3 = _head._z.coord;
+        double u1 = _head._x.coord;
+        double u2 = _head._y.coord;
+        double u3 = _head._z.coord;
 
-                double v1 = v._head._x.coord;
-                double v2 = v._head._y.coord;
-                double v3 = v._head._z.coord;
+        double v1 = v._head._x.coord;
+        double v2 = v._head._y.coord;
+        double v3 = v._head._z.coord;
 
-                return new Vector(new Point3D(
-                        u1 + v1,
-                        u2 + v2,
-                        u3 + v3
-                ));
+        return new Vector(new Point3D(
+                u1 + v1,
+                u2 + v2,
+                u3 + v3
+        ));
     }
 
     /**
@@ -137,9 +137,9 @@ public class Vector {
         double u3 = _head._z.coord;
 
         return new Vector(new Point3D(
-              a*u1,
-              a*u2,
-              a*u3
+                a*u1,
+                a*u2,
+                a*u3
         ));
     }
 
@@ -193,6 +193,11 @@ public class Vector {
         normal.normalize();
 
         return normal;
+    }
+
+    @Override
+    public String toString(){
+        return "head= " + _head.toString();
     }
 
     @Override

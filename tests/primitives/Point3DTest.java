@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class Point3DTest {
 
     Point3D p1 = new Point3D(0.0d,0.5d,1.0d);
-    Point3D p2 = new Point3D(0.0000001d,0.4999999d, 1d);
+    Point3D p2 = new Point3D(0.000000000001d,0.499999999999d, 1d);
     @Test
     void equals() {
         assertEquals(p1,p2);

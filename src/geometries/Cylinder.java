@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Cylinder extends Tube{
 
-    double _height;
+    final double _height;
 
     public Cylinder(Ray axisRay, double radius, double height) {
         super(axisRay, radius);
